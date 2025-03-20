@@ -103,6 +103,18 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/settings',
+    component: Layout,
+    children: [
+      {
+        path: '/settings/index',
+        name: 'Settings',
+        component: () => import('@/views/settings/index'),
+        meta: { title: '系统设置', icon: require('@/assets/settings.png'), iconActive: require('@/assets/settings_active.png') }
+      }
+    ]
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
