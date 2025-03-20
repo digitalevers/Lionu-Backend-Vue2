@@ -79,7 +79,8 @@ export default {
     fetchDomain() {
       getDomain().then(response => {
         if (response.code === 200) {
-          this.temp1.configDomain = response.data;
+          //this.temp1.configDomain = response.data;//不会触发视图更新
+          this.$set(this.temp1, 'configDomain', response.data);
         } else {
           this.$message.error(response.msg || '获取域名失败');
         }
