@@ -14,7 +14,7 @@
         <el-input
           ref="username"
           v-model="loginForm.username"
-          placeholder="测试用户名:admin"
+          placeholder="测试用户名:user"
           name="username"
           type="text"
           tabindex="1"

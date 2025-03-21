@@ -66,7 +66,7 @@ export default {
           { required: true, message: "密码不能为空", trigger: "blur" },
           { min: 6, message: "密码长度不能少于6位", trigger: "blur" },
           { max: 20, message: "密码长度不能超过20位", trigger: "blur" }
-          
+
         ],
         confirmPassword: [
           { required: true, message: "重复密码不能为空", trigger: "blur" },
@@ -98,7 +98,7 @@ export default {
         if (valid) {
           modifyDomain( this.temp1 ).then(response => {
             if(response.code == 200) {
-              this.dialogVisible = false;
+              this.$message.success('域名更新成功');
             }
             else{
               this.$message.error(response.msg)
@@ -114,7 +114,7 @@ export default {
         if (valid) {
           modifyPwd( this.temp2 ).then(response => {
             if(response.code == 200) {
-              this.dialogVisible = false;
+              this.$message.success('密码修改成功');
             }
             else{
               this.$message.error(response.msg)
