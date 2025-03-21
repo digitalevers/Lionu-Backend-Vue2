@@ -56,12 +56,17 @@ export default {
       temp2:{},
       rules1: {
         configDomain: [
-          { required: true, message: "数据采集域名不能为空", trigger: "blur" }
+          { required: true, message: "数据采集域名不能为空", trigger: "blur" },
+          //匹配域名
+          { pattern: /^(?!-)[a-zA-Z0-9-]{1,63}(?<!-)(\.[a-zA-Z0-9-]{1,63}(?<!-))*\.[a-zA-Z]{2,}$/, message: "请输入正确的域名", trigger: "blur" }
         ]
       },
       rules2: {
         adminPassword: [
-          { required: true, message: "密码不能为空", trigger: "blur" }
+          { required: true, message: "密码不能为空", trigger: "blur" },
+          { min: 6, message: "密码长度不能少于6位", trigger: "blur" },
+          { max: 20, message: "密码长度不能超过20位", trigger: "blur" }
+          
         ],
         confirmPassword: [
           { required: true, message: "重复密码不能为空", trigger: "blur" },
