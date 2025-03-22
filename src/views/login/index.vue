@@ -46,7 +46,7 @@
   </div>
 </template>
 
-<script src="env.js"></script>
+
 <script>
 import { validUsername } from '@/utils/validate'
 import { requestInit } from '@/api/user'
@@ -96,6 +96,12 @@ export default {
       console.log('res',res)
       if(res.data.installed == 0) {
         window.location = process.env.VUE_APP_BASE_API + '/install/index'
+      } else {
+        fetch('/config.json')
+        .then(response => response.json())
+        .then(config => {
+          this.usernamePlaceholder = config.usernamePlaceholder;
+        });
       }
     })
   },
