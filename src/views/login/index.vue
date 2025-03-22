@@ -93,7 +93,7 @@ export default {
   },
   created() {
     requestInit().then(res => {
-      console.log('res',res)
+      //console.log('res',res)
       if(res.data.installed == 0) {
         window.location = process.env.VUE_APP_BASE_API + '/install/index'
       } else {
