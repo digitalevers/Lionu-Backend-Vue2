@@ -79,7 +79,7 @@ export default {
       loading: false,
       passwordType: 'password',
       redirect: undefined,
-      usernamePlaceholder: window.env?.usernamePlaceholder || '测试用户名:admin',
+      usernamePlaceholder: '测试用户名:admin',
       passwordPlaceholder: '测试密码:123456'
     }
   },
@@ -100,8 +100,12 @@ export default {
         fetch('/config.json')
         .then(response => response.json())
         .then(config => {
-          this.usernamePlaceholder = config.usernamePlaceholder;
+          this.usernamePlaceholder = config.usernamePlaceholder || '默认用户名:admin';
+        }).catch(error => {
+          //console.error('Failed to fetch config.json:', error);
+          this.usernamePlaceholder = '默认用户名:admin';
         });
+        this.passwordPlaceholder = '测试密码:123456';
       }
     })
   },
