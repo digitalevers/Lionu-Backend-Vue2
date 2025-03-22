@@ -14,7 +14,7 @@
         <el-input
           ref="username"
           v-model="loginForm.username"
-          placeholder="测试用户名:user"
+          :placeholder="usernamePlaceholder"
           name="username"
           type="text"
           tabindex="1"
@@ -31,7 +31,7 @@
           ref="password"
           v-model="loginForm.password"
           :type="passwordType"
-          placeholder="测试密码:123456"
+          :placeholder="passwordPlaceholder"
           name="password"
           tabindex="2"
           auto-complete="on"
@@ -41,15 +41,12 @@
           <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
-
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:83px;margin-top:68px;" @click.native.prevent="handleLogin">登录</el-button>
-
-      
-
     </el-form>
   </div>
 </template>
 
+<script src="env.js"></script>
 <script>
 import { validUsername } from '@/utils/validate'
 import { requestInit } from '@/api/user'
@@ -81,7 +78,9 @@ export default {
       },
       loading: false,
       passwordType: 'password',
-      redirect: undefined
+      redirect: undefined,
+      usernamePlaceholder: window.env?.usernamePlaceholder || '测试用户名:admin',
+      passwordPlaceholder: '测试密码:123456'
     }
   },
   watch: {
