@@ -79,8 +79,8 @@ export default {
       loading: false,
       passwordType: 'password',
       redirect: undefined,
-      usernamePlaceholder: '测试用户名:admin',
-      passwordPlaceholder: '测试密码:123456'
+      usernamePlaceholder: '',
+      passwordPlaceholder: ''
     }
   },
   watch: {
