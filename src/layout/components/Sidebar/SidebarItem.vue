@@ -5,7 +5,7 @@
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
           <!-- <item :icon="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)" :title="onlyOneChild.meta.title" /> -->
           <div class="side-con">
-            <img class="side-img" :src="currentPath == onlyOneChild.path ? onlyOneChild.meta.iconActive : onlyOneChild.meta.icon" />
+            <img v-if="onlyOneChild.meta.icon" class="side-img" :src="currentPath == onlyOneChild.path ? onlyOneChild.meta.iconActive : onlyOneChild.meta.icon" />
             <div class="side-title">{{onlyOneChild.meta.title}}</div>
           </div>
         </el-menu-item>

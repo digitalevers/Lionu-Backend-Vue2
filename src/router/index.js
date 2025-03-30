@@ -87,7 +87,7 @@ export const constantRoutes = [
         path: '/data/index',
         name: 'Data',
         component: () => import('@/views/data/index'),
-        meta: { title: '推广数据', icon: require('@/assets/data.png'), iconActive: require('@/assets/data_active.png') }
+        meta: { title: '推广数据', icon: require('@/assets/data.png'), iconActive: require('@/assets/data_active.png') },
       }
     ]
   },
@@ -115,7 +115,27 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path: '/sem',
+    component: Layout,
+    name: 'Sem',
+    redirect: '/sem/360',
+    meta: { title: 'SEM推广', icon: 'sem' },
+    children:[
+      {
+        path: '360',
+        name: '360',
+        component: () => import('@/views/sem/360/'),
+        meta: { title: '360 ocpc' },
+      },
+      {
+        path: 'baidu',
+        name: 'baidu',
+        component: () => import('@/views/sem/baidu/'),
+        meta: { title: '百度 ocpc' },
+      },
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
