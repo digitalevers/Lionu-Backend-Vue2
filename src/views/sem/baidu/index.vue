@@ -1,7 +1,7 @@
 <template>
     <div class="app-container">
       <div class="filter-container">
-        <div class="filter-title">360 API上报联调</div>
+        <div class="filter-title">百度API 上报联调</div>
       </div>
   
       <el-form
@@ -76,12 +76,6 @@ export default {
             secret: [
                 { required: true, message: "360secret不能为空", trigger: "blur" },
             ],
-            landpage: [
-                { required: true, message: "落地页URL不能为空", trigger: "blur" },
-            ],
-            jzqs: [
-                { required: true, message: "jzqs不能为空", trigger: "blur" },
-            ],
         },
         showJzqs: false, //是否显示jzqs控件
       };
@@ -90,7 +84,7 @@ export default {
       this.fetchKey();
     },
     watch: {
-    'sem360.advType': {
+    'baidu.advType': {
       handler(newVal) {
         if (newVal) {
           this.fetchConvertTypes(newVal);
